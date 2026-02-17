@@ -96,6 +96,7 @@
   </style>
 </head>
 <body>
+  <canvas id="confetti"></canvas>
   <div class="card">
     <h1>Happy First Anniversary <br>Joan Q. Valle ❤️</h1>
 
@@ -179,18 +180,20 @@
       el.style.display = el.style.display === "block" ? "none" : "block";
     }
   </script>
-  <script>
-  const canvas = document.getElementById("confetti");
-  const ctx = canvas.getContext("2d");
-  let pieces = [];
-  const count = 150;
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+  <script>
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    let pieces = [];
+    const count = 150;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
   }
-  window.addEventListener("resize", resize);
-  resize();
+
+    window.addEventListener("resize", resize);
+    resize();
 
   function randomColor() {
     const colors = ["#ff6b81", "#ffd166", "#feca57", "#48dbfb", "#1dd1a1"];
@@ -241,5 +244,4 @@
   }, 4000);
 </script>
 </body>
-<canvas id="confetti"></canvas>
 </html>
