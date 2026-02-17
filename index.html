@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy First Anniversary ❤️</title>
+  <style>
+    :root {
+      --pink: #ff6b81;
+      --bg: #fff7f9;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #confetti {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 999;
+    }
+
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--pink);
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    button {
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      font-size: 16px;
+      background: var(--pink);
+      color: white;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #ffd6dd;
+      color: #a4002d;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      background: #fff0f3;
+      border-radius: 12px;
+    }
+
+    iframe {
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+  <div class="card">
+    <h1>Happy First Anniversary <br>Joan Q. Valle ❤️</h1>
+
+    <p>
+      Hi love,<br><br>
+      I wanted to do something small but special for us.
+      Another year with you somehow feels both fast and forever.
+      Thank you for being my favorite person, my safe place,
+      and the one I want to share all the ordinary and extraordinary moments with.
+    </p>
+
+    <p>
+      I don’t say this enough, but I really appreciate you —
+      your patience, your laugh, the way you make everything feel lighter
+      just by hearing your voice.
+    </p>
+
+    <div class="buttons">
+      <button onclick="toggle('note')">💌 Open a little note</button>
+      <button onclick="toggle('memory')" class="secondary">✨ A favorite memory</button>
+      <button onclick="toggle('promise')">🤍 Something I promise</button>
+    </div>
+
+    <div id="note" class="hidden">
+      <p>
+        First anniversary, you're the best thing that's ever happened to me.
+        You encourage me, challenge me, and make me want to be better every day. 
+        Obviously, I give all the glory to our God for bringing us together, but I also want to say thank you for saying yes to this adventure with me.
+        I pray that the Lord guides both of our hearts to keep loving each other well, and that we continue to grow in grace and kindness together. 
+        I also pray that we learn to cry out to God together in the hard seasons, and that we never stop choosing God's will for our lives and our relationship. I love you so much, and I can't wait to see what the future holds for us.
+        Let us keep in mind that God is the center of our relationship, and that with Him, we can overcome any obstacle and celebrate every joy together.
+        On a serious note, let no one separate what God has joined together. Here's to many more years of love, laughter, and faith with you.
+        God bless us on this special day and always.
+
+        I love you, Joan Q. Valle
+      </p>
+    </div>
+
+    <div id="memory" class="hidden">
+      <p>
+        One of my favorite moments with you is just enjoying your presence, even if we're not on the phone talking.
+        I remember the night that we started keeping each other over the phone while we were both sleeping, and I woke up in the middle of the night to check to see if you were still there and just hear you breathe.
+        That’s when I knew — I want to be your husband someday.
+      </p>
+    </div>
+
+    <div id="promise" class="hidden">
+      <p>
+        I promise to keep choosing God, so that I can love you the way you deserve to be loved.
+        On easy days and hard ones.
+        To listen, to grow, and to never stop putting the effort.
+        I know the wait is hard, but I also know that it’s worth it, and that God has something so good in store for us.
+        I asked, and I received, and I will continue to ask and receive for us, because I believe in the power of prayer and in the goodness of God’s plans for us. 
+        I now know the reward of hard work and patience, it is the asurance of God's promise to bless us abundantly in due time. I can’t wait to see how God continues to work in our lives and our relationship, and I’m so grateful to have you by my side through it all.
+        I love you, and I’m committed to loving you.  
+      </p>
+    </div>
+
+    <!-- MUSIC -->
+    <p style="margin-top: 28px;">
+      Press play — this reminded me of you 💕
+    </p>
+
+    <!-- Replace the Spotify link below if you want -->
+    <iframe
+      src="https://open.spotify.com/embed/track/1k0JAiH11gHL9dc5dfQjQr"
+      width="100%"
+      height="80"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+
+    <footer>
+      Made with love.
+    </footer>
+  </div>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+  <script>
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    let pieces = [];
+    const count = 150;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+  }
+
+    window.addEventListener("resize", resize);
+    resize();
+
+  function randomColor() {
+    const colors = ["#ff6b81", "#ffd166", "#feca57", "#48dbfb", "#1dd1a1"];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  function createConfetti() {
+    pieces = [];
+    for (let i = 0; i < count; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        size: Math.random() * 8 + 4,
+        speed: Math.random() * 3 + 2,
+        color: randomColor(),
+        rotation: Math.random() * 360
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation * Math.PI / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+      ctx.restore();
+
+      p.y += p.speed;
+      p.rotation += p.speed;
+    });
+  }
+
+  function animate() {
+    draw();
+    requestAnimationFrame(animate);
+  }
+
+  createConfetti();
+  animate();
+
+  // Stop confetti after 4 seconds
+  setTimeout(() => {
+    pieces = [];
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }, 4000);
+</script>
+</body>
+</html>
